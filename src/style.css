@@ -1,8 +1,26 @@
+/* Container */
 .App {
   text-align: center;
   padding: 20px;
 }
 
+/* Info icon */
+.info-icon {
+  display: inline-block;
+  background-color: #ccc;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+/* Table basics */
 .crypto-table {
   width: 100%;
   border-collapse: collapse;
@@ -12,51 +30,120 @@
 
 .crypto-table th,
 .crypto-table td {
-  padding: 10px;
+  padding: 10px 15px;
   border-bottom: 1px solid #ddd;
-  text-align: left;
+  vertical-align: middle;
+  text-align: right;  /* default right-align */
 }
 
+/* Header background */
 .crypto-table th {
   background-color: #f4f4f4;
 }
 
-.positive {
-  color: green;
+/* Left-align only the Name column (#2) */
+.crypto-table th:nth-child(2),
+.crypto-table td:nth-child(2) {
+  text-align: left;
 }
 
-.negative {
-  color: red;
+/* Tighten spacing between Market Cap (#7) & Volume (#8) */
+.crypto-table th:nth-child(7),
+.crypto-table td:nth-child(7) {
+  padding-right: 15px;
 }
 
-/* Ensure icons and text align nicely */
-.crypto-table td div {
+/* Volume (col 8) header & values remain right-aligned */
+.crypto-table th:nth-child(8),
+.crypto-table td:nth-child(8) {
+  text-align: right;
+}
+
+/* Stack Volume value + small label, both right-aligned */
+.volume-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.small-volume-label {
+  margin: 2px 0 0;
+  font-size: 0.75rem;
+  color: #666;
+  text-align: right;
+}
+
+/* Coin name styling */
+.crypto-table .coin-name {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 .crypto-table td img {
   margin-right: 8px;
 }
 
-/* Prevent any inherited styles from affecting SVG charts */
-svg path {
-  color: green !important;
-  stroke: green !important;
-  /* Ensure .negative class doesn't apply to charts */
-  transition: none !important; /* Avoid animation interference */
+/* LAST 7 DAYS COLUMN FIXES */
+.crypto-table th:nth-child(10) {
+  text-align: right;
+  padding-right: 15px;
 }
 
+.crypto-table td:nth-child(10) {
+  padding-right: 15px;
+  text-align: right;
+}
+
+.crypto-table td:nth-child(10) > div {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  width: 100%;
+  max-width: 180px;
+  margin-left: auto;
+}
+
+/* Sparkline chart container */
+.crypto-table td:nth-child(10) .recharts-responsive-container {
+  width: 80px !important;
+  height: 30px !important;
+  min-width: 80px;
+}
+
+/* Value label alignment */
+.crypto-table td:nth-child(10) .positive,
+.crypto-table td:nth-child(10) .negative {
+  min-width: 45px;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+/* Positive/negative coloring */
+.positive { color: green; }
+.negative { color: red; }
+
+/* Responsive tweaks */
 @media (max-width: 768px) {
-  .crypto-table {
-    font-size: 12px;
-  }
+  .crypto-table { font-size: 12px; }
   .crypto-table th,
-  .crypto-table td {
-    padding: 5px;
+  .crypto-table td { padding: 5px; }
+  .crypto-table td img { width: 20px; height: 20px; }
+  
+  /* Adjust last 7 days for mobile */
+  .crypto-table td:nth-child(10) > div {
+    max-width: 140px;
   }
-  .crypto-table td img {
-    width: 20px;
-    height: 20px;
+  
+  .crypto-table td:nth-child(10) .recharts-responsive-container {
+    width: 60px !important;
+  }
+  
+  .crypto-table td:nth-child(10) .positive,
+  .crypto-table td:nth-child(10) .negative {
+    min-width: 35px;
+    font-size: 0.75rem;
   }
 }

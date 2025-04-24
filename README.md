@@ -1,13 +1,53 @@
-https://xivtech-assignment1.netlify.app/
-# React + Vite
+🪙 Real-Time Crypto Price Tracker
+A responsive frontend React app that displays live cryptocurrency price changes using Redux Toolkit and mocked real-time updates.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Features
+Displays 5 top cryptocurrencies in a table
 
-Currently, two official plugins are available:
+Real-time updates every 1–2 seconds (price, % changes, volume)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+All state managed via Redux Toolkit (no local state)
 
-## Expanding the ESLint configuration
+Color-coded % changes (green for gain, red for loss)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Static 7-day chart
+
+Fully responsive layout
+
+🧰 Tech Stack
+React + Vite
+
+Redux Toolkit + React-Redux
+
+Tailwind CSS
+
+JavaScript
+
+Simulated WebSocket using setInterval
+
+📁 Setup Instructions
+Clone the repo
+
+
+git clone https://github.com/your-username/crypto-tracker.git
+cd crypto-tracker
+Install dependencies
+
+
+npm install
+Start the app
+
+
+npm run dev
+Open http://localhost:5173 in your browser
+
+🧬 Architecture
+Simulated WebSocket (setInterval) dispatches Redux actions
+
+Redux store holds and updates all crypto data
+
+Components subscribe using useSelector
+
+📹 Demo
+Include your demo GIF or video here (UI + updates + Redux flow)
+
