@@ -1,3 +1,4 @@
+
 🪙 Real-Time Crypto Price Tracker
 A responsive frontend React app that displays live cryptocurrency price changes using Redux Toolkit and mocked real-time updates.
 
