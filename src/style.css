@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.crypto-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.crypto-table th,
+.crypto-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.crypto-table th {
+  background-color: #f4f4f4;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+
+/* Ensure icons and text align nicely */
+.crypto-table td div {
+  display: flex;
+  align-items: center;
+}
+
+.crypto-table td img {
+  margin-right: 8px;
+}
+
+/* Prevent any inherited styles from affecting SVG charts */
+svg path {
+  color: green !important;
+  stroke: green !important;
+  /* Ensure .negative class doesn't apply to charts */
+  transition: none !important; /* Avoid animation interference */
+}
+
+@media (max-width: 768px) {
+  .crypto-table {
+    font-size: 12px;
+  }
+  .crypto-table th,
+  .crypto-table td {
+    padding: 5px;
+  }
+  .crypto-table td img {
+    width: 20px;
+    height: 20px;
+  }
+}
